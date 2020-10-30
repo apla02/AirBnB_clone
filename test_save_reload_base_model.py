@@ -14,10 +14,4 @@ my_model.name = "Holberton"
 my_model.my_number = 89
 my_model.save()
 print(my_model)
-dicti = storage.all()
-print(type(dicti))
-print("--------------------------")
-for key, value in dicti.items():
-    print(key, "AQUÏ", value)
-    print(type(key), "AQUÏ", type(value))
-print("--------------------------")
+
