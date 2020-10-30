@@ -59,7 +59,7 @@ class BaseModel():
             add key "__class__" to dictionary and set the class name of
             an instance
         '''
-        dic = self.__dict__
+        dic = self.__dict__.copy()
         for key in dic:
             if key == "id":
                 dic[key] = self.id

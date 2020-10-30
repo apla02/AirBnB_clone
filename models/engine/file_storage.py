@@ -23,15 +23,14 @@ class FileStorage():
         '''
         '''
         key = obj.__class__.__name__ + "." + obj.id
-        FileStorage.__objects[key] = obj
+        self.__objects[key] = obj
 
     def save(self):
         '''
         Method to serializes __objects to the JSON file
         '''
-        print(self.__dict__)
         dic_objects = {}
-        for key, value in FileStorage.__objects.items():
+        for key, value in self.__objects.items():
             dic_objects[key] = value.to_dict()
         with open(FileStorage.__file_path, "w", encoding="utf-8") as fd:
             json.dump(dic_objects, fd)
@@ -40,13 +39,13 @@ class FileStorage():
         '''
         deserializes the JSON file to __objects
         '''
+        from models.base_model import BaseModel
         file = FileStorage.__file_path
         try:
-            with open(file, "r", encoding='utf-8') as fd: #'{key (class.id): value ({key(id):value(14565r34), key(create):ijkk})}'
-                js_rep = json.load(fd)
-                for key, value in js_rep.items():
-                    myobject = eval(value['class'] + '(**value)')
-                    type(self).__objects[key] = myobject
-
-        except:
+            with open(file, mode="r", encoding='utf-8') as fd:
+                js_dic = json.load(fd)
+                for key, value in js_dic.items():
+                    FileStorage.__objects[key] = eval(
+                        value['__class__'] + '(**value)')
+        except FileNotFoundError:
             pass
