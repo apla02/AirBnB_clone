@@ -3,7 +3,12 @@
     Represents a  FileStorage class
 '''
 import json
-
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 class FileStorage():
     '''
@@ -21,9 +26,11 @@ class FileStorage():
 
     def new(self, obj):
         '''
+        set a new object with the obj in the key
         '''
-        key = obj.__class__.__name__ + "." + obj.id
-        self.__objects[key] = obj
+        if obj:
+            key = obj.__class__.__name__ + "." + obj.id
+            self.__objects[key] = obj
 
     def save(self):
         '''
@@ -33,13 +40,13 @@ class FileStorage():
         for key, value in self.__objects.items():
             dic_objects[key] = value.to_dict()
         with open(FileStorage.__file_path, "w", encoding="utf-8") as fd:
-            json.dump(dic_objects, fd)
+            json.dump(dic_objects, fd, indent="")
 
     def reload(self):
         '''
         deserializes the JSON file to __objects
         '''
-        from models.base_model import BaseModel
+
         file = FileStorage.__file_path
         try:
             with open(file, mode="r", encoding='utf-8') as fd:
