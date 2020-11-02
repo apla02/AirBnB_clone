@@ -22,10 +22,10 @@ class BaseModel():
         '''
         if len(kwargs) > 0:
             for key, value in kwargs.items():
-                if key == "created_at":
+                if key == "created_at" and type(kwargs["created_at"]) is str:
                     self.created_at = datetime.strptime(
                         value, "%Y-%m-%dT%H:%M:%S.%f")
-                elif key == "updated_at":
+                elif key == "updated_at" and type(kwargs["updated_at"]) is str:
                     self.updated_at = datetime.strptime(
                         value, "%Y-%m-%dT%H:%M:%S.%f")
                 elif key != "__class__":
@@ -40,7 +40,7 @@ class BaseModel():
         '''
             method to print the str representation of an instance
         '''
-        return "[{}]({}){}".format(
+        return "[{}] ({}) {}".format(
             self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
