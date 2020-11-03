@@ -35,7 +35,7 @@ class testCommand(unittest.TestCase):
         self.assertEqual(value, "")
 
     def test_create(self):
-        """Test create command"""
+        """Test create command."""
         with patch('sys.stdout', new=StringIO()) as fd:
             HBNBCommand().onecmd("create")
         value = fd.getvalue()
@@ -47,7 +47,7 @@ class testCommand(unittest.TestCase):
         self.assertEqual(value, "** class doesn't exist **\n")
 
     def test_show(self):
-        """Test show command"""
+        """Test show command."""
         n_bm = BaseModel()
         bmid = n_bm.id
         with patch('sys.stdout', new=StringIO()) as fd:
@@ -71,7 +71,7 @@ class testCommand(unittest.TestCase):
         self.assertEqual(value, "** no instance found **\n")
 
     def test_destroy(self):
-        """Test destroy command"""
+        """Test destroy command."""
         n_bm = BaseModel()
         bmid = n_bm.id
         with patch('sys.stdout', new=StringIO()) as fd:

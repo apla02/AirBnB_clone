@@ -19,6 +19,7 @@ class TestFileStorage(unittest.TestCase):
     """
     Unittest for file_storage.py
     """
+    # 1. Crear una instancia de cada modulo: BaseModel, User...
     storage = FileStorage()
     path = storage._FileStorage__file_path
     bm_instance = BaseModel(**my_dict)
@@ -41,14 +42,13 @@ class TestFileStorage(unittest.TestCase):
         for name, func in methods:
             self.assertTrue(len(func.__doc__) > 20)
 
-    """def test_pep8(self):
-        \"""
+    def test_pep8(self):
+        """
         Tests for PEP-8
-        ""\"
+        """
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(["models/base_model.py"])
         self.assertEqual(result.total_errors, 0)
-        """
 
     def test_docstring_for_test(self):
         """
@@ -71,7 +71,6 @@ class TestFileStorage(unittest.TestCase):
         for name, func in methods:
             self.assertTrue(len(func.__doc__) > 20)
 
-    # 2. save esa inst con el metodo save BaseModel.save->FileStorage.__objects
     def test_storage_isinstance(self):
         """
         Tests if storage is an instance of FileStorage
@@ -108,7 +107,5 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(
             reader[key], TestFileStorage.storage.all()[key].to_dict())
 
-    # 3. Checkear todo con FileStorage.__objects:
-    #  guardar en el archivo JSON, cargar desde JSON...
 if __name__ == '__main__':
     pass
