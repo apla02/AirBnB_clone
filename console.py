@@ -23,16 +23,17 @@ class HBNBCommand(cmd.Cmd):
     '''
     prompt = "(hbnb) "
 
-    def do_create(self, args):
+    def do_create(self, line):
         'Create  command to create a new instance of a class\n'
+        args = shlex.split(line)
         if len(args) == 0:
             print("** class name missing **")
-        elif args in classes:
+        elif args[0] in classes:
             '''
             eval(args): execute the python expression
             eval(args)(self):return the object equivalent
             to the python expression'''
-            new_object = eval(args)(self)
+            new_object = eval(args[0])(self)
             new_object.save()
             print(new_object.id)
         else:
