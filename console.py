@@ -88,18 +88,17 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
+        elif args[0] + "." + args[1] not in all_objects.keys():
+            print("** no instance found **")
         elif len(args) < 3:
             print("** attribute name missing **")
         elif len(args) < 4:
-            print("** value missing *")
-        elif args[0] + "." + args[1] not in all_objects.keys():
-            print("** no instance found **")
+            print("** value missing **")
         else:
             key = args[0] + "." + args[1]
             dic2 = all_objects[key]  # all_objects = storage.all()
             args[2]  # name attribute
-            if args[3][0] == "\"":
-                args[3] = args[3][1:-1]  # args[3] = value attribute
+            args[3] = args[3].replace("\"", "")  # args[3] = value attribute
             setattr(dic2, args[2], args[3])
             dic2.save()
 
