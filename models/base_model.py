@@ -22,10 +22,10 @@ class BaseModel():
         '''
         if len(kwargs) > 0:
             for key, value in kwargs.items():
-                if key == "created_at" and type(kwargs["created_at"]) is str:
+                if key == "created_at":
                     self.created_at = datetime.strptime(
                         value, "%Y-%m-%dT%H:%M:%S.%f")
-                elif key == "updated_at" and type(kwargs["updated_at"]) is str:
+                elif key == "updated_at":
                     self.updated_at = datetime.strptime(
                         value, "%Y-%m-%dT%H:%M:%S.%f")
                 elif key != "__class__":
@@ -42,6 +42,7 @@ class BaseModel():
         '''
         return "[{}] ({}) {}".format(
             self.__class__.__name__, self.id, self.__dict__)
+
     def save(self):
         '''
             method to update the current datetime
@@ -58,12 +59,7 @@ class BaseModel():
             an instance
         '''
         dic = self.__dict__.copy()
-        for key in dic:
-            if key == "id":
-                dic[key] = self.id
-            elif key == "created_at":
-                dic[key] = self.created_at.isoformat()
-            elif key == "updated_at":
-                dic[key] = self.updated_at.isoformat()
+        dic["created_at"] = self.created_at.isoformat()
+        dic["updated_at"] = self.updated_at.isoformat()
         dic["__class__"] = self.__class__.__name__
         return dic
