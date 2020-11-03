@@ -133,6 +133,8 @@ class HBNBCommand(cmd.Cmd):
                 self.do_count(args[0])
             elif args[1] == "show":
                 self.do_show(args[0] + " " + args[2])
+            elif args[1] == "destroy":
+                self.do_destroy(args[0] + " " + args[2])
         else:
             print("*** Unknown syntax: {}".format(line))
 
@@ -152,6 +154,7 @@ class HBNBCommand(cmd.Cmd):
                 if type(value) == eval(args[0]):
                     list1.append(value.__str__())
             print(len(list1))
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
