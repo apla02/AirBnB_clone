@@ -10,7 +10,6 @@ class User(BaseModel):
     '''
         Repretesents Class User with public class attribute
     '''
-    
     email = ""
     password = ""
     first_name = ""
