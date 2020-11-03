@@ -4,7 +4,6 @@
 '''
 import cmd
 import shlex
-import argparse
 import models
 from models.base_model import BaseModel
 from models.user import User
@@ -44,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(line)
         '''args = self.argparser.parse_args(line.split(line))'''
         if len(args) == 0:
-            print("** class name missing ** ")
+            print("** class name missing **")
         elif args[0] not in classes:
             print("** class doesn't exist **")
         elif len(args) < 2:
@@ -58,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
         'Deletes an instance based on the class name and id\n'
         args = shlex.split(line)
         if len(args) == 0:
-            print("** class name missing ** ")
+            print("** class name missing **")
         elif args[0] not in classes:
             print("** class doesn't exist **")
         elif len(args) < 2:
@@ -84,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
         'Updates an instance- attribute based on the class name and id\n'
         args = shlex.split(line)
         if len(args) == 0:
-            print("** class name missing ** ")
+            print("** class name missing **")
         elif args[0] not in classes:
             print("** class doesn't exist **")
         elif len(args) < 2:
@@ -93,17 +92,16 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
         elif len(args) < 4:
             print("** value missing *")
-        elif args[0] + "." + args[1] in all_objects.keys():
+        elif args[0] + "." + args[1] not in all_objects.keys():
+            print("** no instance found **")
+        else:
             key = args[0] + "." + args[1]
             dic2 = all_objects[key]  # all_objects = storage.all()
-            name_attribute = args[2]
-            value_attribute = args[3]
-            if type(args[3]) == int:
-                eval(args[3])
-            setattr(dic2, name_attribute, value_attribute)
+            args[2]  # name attribute
+            if args[3][0] == "\"":
+                args[3] = args[3][1:-1]  # args[3] = value attribute
+            setattr(dic2, args[2], args[3])
             dic2.save()
-        else:
-            print("** no instance found **")
 
     def do_EOF(self, line):
         'EOF command to exit the program\n'
@@ -115,7 +113,6 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         'do anything\n'
-        print()  # is it neccesary?
         pass
 
 
