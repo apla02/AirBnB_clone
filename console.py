@@ -70,14 +70,21 @@ class HBNBCommand(cmd.Cmd):
             '''{key :obj} = clase.id'''
             models.storage.save()
 
-    def do_all(self, args):
+    def do_all(self, line):
         'Prints all string representation of all instancesq\n'
-        if args not in HBNBCommand.classes:
+        args = shlex.split(line)
+        if len(args) == 0:
+            list1 = []
+            for key, value in HBNBCommand.all_objects.items():
+                list1.append(value.__str__())
+            print(list1)
+        elif args[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
         else:
             list1 = []
             for key, value in HBNBCommand.all_objects.items():
-                list1.append(value.__str__())
+                if type(value) == eval(args[0]):
+                    list1.append(value.__str__())
             print(list1)
 
     def do_update(self, line):
