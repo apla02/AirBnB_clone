@@ -124,7 +124,8 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         'Called on an input line when the command prefix is not recognized'
-        line_copy = line.replace("\"", "").replace("(", ".").replace(")", ".")
+        line_copy = line.replace("\"", "").replace("(", ".").replace(
+            ")", ".").replace(",", "")
         args = line_copy.split(".")
         if len(args) > 1:
             if args[1] == "all":
@@ -135,6 +136,8 @@ class HBNBCommand(cmd.Cmd):
                 self.do_show(args[0] + " " + args[2])
             elif args[1] == "destroy":
                 self.do_destroy(args[0] + " " + args[2])
+            elif args[1] == "update":
+                self.do_update(args[0] + " " + args[2])
         else:
             print("*** Unknown syntax: {}".format(line))
 
