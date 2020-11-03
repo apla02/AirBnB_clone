@@ -27,7 +27,7 @@ class Teststate(unittest.TestCase):
 
     def test_class(self):
         '''
-        Test to check the State class 
+        Test to check the State class
         '''
         state1 = State()
         self.assertEqual(state1.__class__.__name__, "State")
