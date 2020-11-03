@@ -122,5 +122,36 @@ class HBNBCommand(cmd.Cmd):
         'do anything\n'
         pass
 
+    def default(self, line):
+        'Called on an input line when the command prefix is not recognized'
+        line_copy = line.replace("\"", "").replace("(", ".").replace(")", ".")
+        args = line_copy.split(".")
+        if len(args) > 1:
+            if args[1] == "all":
+                self.do_all(args[0])
+            elif args[1] == "count":
+                self.do_count(args[0])
+            elif args[1] == "show":
+                self.do_show(args[0] + " " + args[2])
+        else:
+            print("*** Unknown syntax: {}".format(line))
+
+    def do_count(self, line):
+        'Count command retrieve the number of instances of a class:'
+        args = shlex.split(line)
+        if len(args) == 0:
+            list1 = []
+            for key, value in HBNBCommand.all_objects.items():
+                list1.append(value.__str__())
+            print(len(list1))
+        elif args[0] not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+        else:
+            list1 = []
+            for key, value in HBNBCommand.all_objects.items():
+                if type(value) == eval(args[0]):
+                    list1.append(value.__str__())
+            print(len(list1))
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
