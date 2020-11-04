@@ -1,5 +1,7 @@
 # 0x00. AirBnB clone - The console
 
+![Alt text](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20201104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201104T194657Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=4c3bd62aaae62ef042a6af26ce9d0d8119f0c412064df98c7f62c9d966272cb0 "Optional title")
+
 ## 🚀 Description of the project
 
 This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…  
@@ -14,6 +16,7 @@ create all classes used for AirBnB (User, State, City, Place…) that inherit fr
 - create the first abstracted storage engine of the project: File storage.
 
 - create all unittests to validate all our classes and storage engine
+
 
 ## 📑 Learning Objectives
 - How to create a Python package
@@ -180,12 +183,11 @@ File  | Description
 [models/user.py](https://github.com/apla02/AirBnB_clone/tree/main/models/user.py "user.py")  | Contains the User class.
 [models/engine/file_storage.py](https://github.com/apla02/AirBnB_clone/blob/main/models/engine/file_storage.py "file_storage.py")  | Contains the FileStorage class.
 [models/engine/__init__.py](https://github.com/apla02/AirBnB_clone/blob/main/models/engine/__init__.py "__init__.py")  | __init__ file.
-[tests](https://github.com/Valentinaga1/simple_shell/blob/master/tests "tests")  |  Contains tests cases.
-[tests/test_models](https://github.com/Valentinaga1/simple_shell/blob/master/tests/test_models "tes/test_modelsts")  |  Contains tests cases.
-[AUTHORS](https://github.com/Valentinaga1/simple_shell/blob/master/AUTHORS "AUTHORS")  | Contains the Authors names of the project.
-[console.py](https://github.com/Valentinaga1/simple_shell/blob/master/console.py "console.py")  | Contains the console class.  }
+[tests](https://github.com/apla02/AirBnB_clone/blob/main/tests "tests")  |  Contains tests cases.
+[tests/test_models](https://github.com/apla02/AirBnB_clone/blob/main/tests/test_models "tes/test_modelsts")  |  Contains tests cases.
+[AUTHORS](https://github.com/apla02/AirBnB_clone/blob/main/AUTHORS "AUTHORS")  | Contains the Authors names of the project.
+[console.py](https://github.com/apla02/AirBnB_clone/blob/main/console.py "console.py")  | Contains the console class.  }
 
 ## 🚀Authors
 * **Laura Andrea Álvarez Pérez** - *Holberton School Student* - [apla02](https://github.com/apla02)
 * **Valentina Gómez Agudelo** - *Holberton School Student* - [Valentinaga1](https://github.com/Valentinaga1)
-
