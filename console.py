@@ -34,6 +34,7 @@ class HBNBCommand(cmd.Cmd):
             eval(args)(self):return the object equivalent
             to the python expression'''
             new_object = eval(args[0])(self)
+            #print ((eval(args[0])()))
             new_object.save()
             print(new_object.id)
         else:
