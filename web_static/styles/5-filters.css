@@ -7,7 +7,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 50px;
 }
 
 .filters button {
@@ -18,11 +17,12 @@
     width: 20%;
     border: 0px;
     border-radius: 4px;
+    margin-left:auto;
     margin-right: 30px;
     opacity: 1;
 }
 
-.filters button:hover{
+section.filters button:hover{
     opacity: .90;
 }
 
@@ -31,25 +31,21 @@
     border-right: 1px solid #DDDDDD;
     height: 100%;
     width: 25%;
-    padding-right: 70px;
-    margin-right: 10px;
-
+    margin-left: 4%;
 }
 .amenities {
+    text-align: left;
     height: 100%;
     width: 25%;
-    padding-right: 100px;
-    margin-left: -10px;
-
-
+    margin-left: 4%;
 }
-h3 {
-        padding-top: 0px;
+.filters h3, .amenities h3 {
         font-weight: 600;
     }
 
-h4 {
+.filters h4 {
         font-weight: 400;
         font-size: 14px;
         margin-top: -15px;
     }
+
