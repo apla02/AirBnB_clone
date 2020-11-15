@@ -5,3 +5,8 @@ body {
     font-size: 14px;
     font-family: Circular,"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+html {
+    min-height: 100%;
+    position: relative;
+}
