@@ -1,6 +1,7 @@
 # WEB STATIC AIRBNB CLONE 
 
 ## General
+The main objectives to this proyect are learning how apply the next concepts in the frontenf to Airbnb Clone:
 
     What is HTML
     How to create an HTML page
